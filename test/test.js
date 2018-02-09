@@ -1,5 +1,5 @@
-const test = require('tape')
-
+const test = require('tape'),
+  Staffelei = require('..')
 
 
 test('dummy', t => {
