@@ -1,0 +1,39 @@
+{
+  "name": "staffelei",
+  "version": "0.0.1",
+  "description": "Canvas API wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js",
+    "test-coveralls": "npm run istanbul && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "test-beefy": "beefy test/beefy.js -v",
+    "test-beefy-live": "beefy test/beefy.js --cwd test -v --live",
+    "coverage": "rm -rf coverage && npm run istanbul && istanbul report html && serve coverage",
+    "istanbul": "istanbul cover test/test.js",
+    "lint": "eslint index.js test/*",
+    "format": "js-beautify -s=2 -r -f *.js test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tillarnold/staffelei"
+  },
+  "keywords": [
+    "canvas"
+  ],
+  "author": "Till Arnold",
+  "license": "MIT",
+  "devDependencies": {
+    "beefy": "^2.1.8",
+    "coveralls": "~3.0.0",
+    "eslint": "^4.17.0",
+    "istanbul": "^0.4.0",
+    "js-beautify": "^1.6.3",
+    "serve": "^6.4.9",
+    "tape": "^4.2.2",
+    "watchify": "^3.10.0"
+  },
+  "dependencies": {
+    "canvas-utils": "^0.7.0",
+    "leinwand": "^0.4.0"
+  }
+}
