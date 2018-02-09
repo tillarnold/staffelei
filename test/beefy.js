@@ -26,7 +26,7 @@ l
   .fill()
   .stroke()
   .on('click', e => {
-    l.fillStyle('lime').fillRect(e.x, e.y, 10, 10)
+    l.fillStyle('lime').fillRectCenteredAt(e.x, e.y, 15, 15)
   })
   .fillRect(200, 200, 100, 100)
   .rotateContextAt(250, 250, Math.PI / 4)
