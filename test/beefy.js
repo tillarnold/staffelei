@@ -32,3 +32,9 @@ l
   .rotateContextAt(250, 250, Math.PI / 4)
   .fillRect(200, 200, 100, 100)
   .resetTransforms()
+
+
+setInterval(() => {
+  l.clearRect(400, 0, 100, 30)
+    .fillTextCenteredAt(l.isMouseDown(), 450, 15)
+}, 100)

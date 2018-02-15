@@ -3,6 +3,18 @@
 const Leinwand = require('leinwand'),
   cu = require('canvas-utils')
 
+
+const pressedMouseButtons = Object.create(null)
+
+document.addEventListener('mousedown', evt => {
+  pressedMouseButtons[evt.button] = true
+})
+
+document.addEventListener('mouseup', evt => {
+  pressedMouseButtons[evt.button] = false
+})
+
+
 module.exports = class Staffelei extends Leinwand {
   constructor(canvas) {
     super(canvas)
@@ -29,6 +41,14 @@ module.exports = class Staffelei extends Leinwand {
   once(eventName, listener) {
     this.getCanvasEventEmitter().once(eventName, listener)
     return this
+  }
+
+  static isMouseDown(button = 0) {
+    return pressedMouseButtons[button] === true
+  }
+
+  isMouseDown(button = 0) {
+    return Staffelei.isMouseDown(button)
   }
 
 }
