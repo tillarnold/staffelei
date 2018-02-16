@@ -22,7 +22,7 @@ module.exports = class Staffelei extends Leinwand {
   }
 
   toImage() {
-    cu.canvasToImage(this.getCanvas())
+    return cu.canvasToImage(this.getCanvas())
   }
 
   getCanvasEventEmitter() {
