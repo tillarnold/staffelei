@@ -1,7 +1,8 @@
-'use stirct'
-
-const Leinwand = require('leinwand'),
-  cu = require('canvas-utils')
+import Leinwand from 'leinwand'
+import {
+  canvasToImage,
+  createCanvasEventEmitter
+} from 'canvas-utils'
 
 
 const pressedMouseButtons = Object.create(null)
@@ -22,12 +23,12 @@ module.exports = class Staffelei extends Leinwand {
   }
 
   toImage() {
-    return cu.canvasToImage(this.getCanvas())
+    return canvasToImage(this.getCanvas())
   }
 
   getCanvasEventEmitter() {
     if (!this._canvasEventEmitter) {
-      this._canvasEventEmitter = cu.createCanvasEventEmitter(this.getCanvas())
+      this._canvasEventEmitter = createCanvasEventEmitter(this.getCanvas())
     }
 
     return this._canvasEventEmitter
