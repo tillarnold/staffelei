@@ -6,7 +6,7 @@ export default {
   output: {
     file: 'dist/staffelei-rollup.js',
     format: 'umd',
-		name: 'Staffelei'
+    name: 'Staffelei'
   },
   plugins: [
     resolve(),
