@@ -1,3 +1,6 @@
+global.document = {}
+global.document.addEventListener = () => {}
+
 const test = require('tape'),
   Staffelei = require('..')
 
