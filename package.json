@@ -11,7 +11,10 @@
     "coverage": "rm -rf coverage && npm run istanbul && istanbul report html && serve coverage",
     "istanbul": "istanbul cover test/test.js",
     "lint": "eslint index.js test/*",
-    "format": "js-beautify -s=2 -r -f *.js test/*.js"
+    "format": "js-beautify -s=2 -r -f *.js test/*.js",
+    "build-dist": "rm -rf dist && mkdir dist && npm run build-dist-browserify && npm run build-dist-rollup",
+    "build-dist-browserify": "browserify --standalone Staffelei  index.js -o dist/staffelei-browserify.js",
+    "build-dist-rollup": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -24,16 +27,20 @@
   "license": "MIT",
   "devDependencies": {
     "beefy": "^2.1.8",
+    "browserify": "^16.1.0",
     "coveralls": "~3.0.0",
     "eslint": "^4.17.0",
     "istanbul": "^0.4.0",
     "js-beautify": "^1.6.3",
+    "rollup": "^0.56.1",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3",
     "serve": "^6.4.9",
     "tape": "^4.2.2",
     "watchify": "^3.10.0"
   },
   "dependencies": {
-    "canvas-utils": "^0.7.0",
+    "canvas-utils": "^0.8.0",
     "leinwand": "^0.5.0"
   }
 }
