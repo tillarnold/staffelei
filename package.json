@@ -12,6 +12,7 @@
     "istanbul": "istanbul cover test/test.js",
     "lint": "eslint index.js test/*",
     "format": "js-beautify -s=2 -r -f *.js test/*.js",
+    "pre-commit": "npm run format && npm run lint && npm run test",
     "build-dist": "rm -rf dist && mkdir dist && npm run build-dist-browserify && npm run build-dist-rollup",
     "build-dist-browserify": "browserify --standalone Staffelei  index.js -o dist/staffelei-browserify.js",
     "build-dist-rollup": "rollup -c"
