@@ -18,7 +18,7 @@ In the first case which is called simple mode you'd do something like this:
 ```js
 import Staffelei from 'staffelei';
 //or
-const Staffelei = requiew('staffelei');
+const Staffelei = require('staffelei');
 
 let s = new Staffelei(document.getElementById('myCanvas'));
 
