@@ -7,7 +7,7 @@ import {
 import {
   LayerManager,
   ExpanderLayer
-} from '@tillarnold/oni'
+} from 'oni.js'
 
 const pressedMouseButtons = Object.create(null)
 
