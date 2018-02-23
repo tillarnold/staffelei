@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Canvas API wrapper",
   "main": "index.js",
+  "module": "src-es6/index.js",
   "scripts": {
     "test": "npm run build && node es5-generated/test/test.js",
     "test-coveralls": "npm run istanbul && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
