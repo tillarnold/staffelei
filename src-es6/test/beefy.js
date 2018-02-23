@@ -1,4 +1,4 @@
-const Staffelei = require('../')
+import Staffelei from '..'
 
 const container = document.createElement('div')
 document.body.appendChild(container)
@@ -18,12 +18,11 @@ window.l = l
 
 l
   .createLayer('solid', 1)
-  .createLayer('background', 2)
-  .createLayer('front', 3)
-  .layer('solid')
   .getCanvas()
   .style.background = 'purple'
 l
+  .createLayer('background', 2)
+  .createLayer('front', 3)
   .layer('background')
   .fillStyle('red')
   .mt(50, 50)

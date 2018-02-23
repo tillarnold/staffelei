@@ -137,7 +137,7 @@ export default class Staffelei extends Leinwand {
     this._ensureIsInLayeredMode()
     this._lm.add(layer, position)
     this._layers.set(name, layer)
-    return this
+    return this.layer(name)
   }
 
 
