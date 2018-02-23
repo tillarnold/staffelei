@@ -12,13 +12,13 @@
     "coverage": "rm -rf coverage && npm run istanbul && istanbul report html && serve coverage",
     "istanbul": "npm run build && istanbul cover es5-generated/test/test.js",
     "lint": "eslint src-es6/*",
-    "format": "js-beautify -s=2 -r -f src-es6/*.js src-es6/test/*.js",
+    "format": "js-beautify -s=2 -r -f *.js src-es6/*.js src-es6/test/*.js",
     "check": "npm run format && npm run lint && npm run test",
     "build": "rm -rf es5-generated && mkdir es5-generated && babel src-es6 --out-dir es5-generated",
     "build-dist": "rm -rf dist && mkdir dist && npm run build-dist-browserify && npm run build-dist-rollup && npm run build-dist-min",
-    "build-dist-browserify": "npm run build && browserify --standalone Staffelei  es5-generated/index.js -o dist/staffelei-browserify.js",
+    "build-dist-browserify": "npm run build && browserify --standalone Staffelei  es5-generated/index.js -o dist/staffelei-browserify-v${npm_package_version}.js",
     "build-dist-rollup": "rollup -c",
-    "build-dist-min": "uglifyjs dist/staffelei-browserify.js > dist/staffelei-browserify-min.js && uglifyjs dist/staffelei-rollup.js > dist/staffelei-rollup-min.js"
+    "build-dist-min": "uglifyjs dist/staffelei-browserify-v${npm_package_version}.js > dist/staffelei-browserify-v${npm_package_version}-min.js && uglifyjs dist/staffelei-rollup-v${npm_package_version}.js > dist/staffelei-rollup-v${npm_package_version}-min.js"
   },
   "repository": {
     "type": "git",
