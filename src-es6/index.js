@@ -26,7 +26,7 @@ module.exports = class Staffelei extends Leinwand {
     width,
     height
   } = {}) {
-    let container = canvas
+    const container = canvas
     if (mode !== 'layered' && mode !== 'simple') {
       throw new Error('mode has to be simple or layered')
     }
@@ -53,29 +53,7 @@ module.exports = class Staffelei extends Leinwand {
     this._mode = mode
   }
 
-  createLayer(name, {
-    layer = new ExpanderLayer(),
-    position
-  } = {}) {
-    if (this._mode !== 'layered') {
-      throw new Error('This Staffelei is not in layered mode')
-    }
 
-    this._lm.add(layer, position)
-    this._layers.set(name, layer)
-    return this
-  }
-
-  layer(name) {
-    if (this._mode !== 'layered') {
-      throw new Error('This Staffelei is not in layered mode')
-    }
-
-    const layer = this._layers.get(name)
-
-    this.setCanvas(layer.getElement())
-    return this
-  }
   /*
    * Move to to leinwand?
    */
@@ -115,4 +93,58 @@ module.exports = class Staffelei extends Leinwand {
     return Staffelei.isMouseDown(button)
   }
 
+  //LAYER METHODS
+
+
+  _ensureIsInLayeredMode() {
+
+    if (this._mode !== 'layered') {
+      throw new Error('This Staffelei is not in layered mode')
+    }
+  }
+
+  createLayer(name, {
+    layer = new ExpanderLayer(),
+    position
+  } = {}) {
+    this._ensureIsInLayeredMode()
+    this._lm.add(layer, position)
+    this._layers.set(name, layer)
+    return this
+  }
+
+
+  getLayerManager() {
+    this._ensureIsInLayeredMode()
+    return this._lm
+  }
+
+  getLayer(name) {
+    this._ensureIsInLayeredMode()
+
+    const layer = this._layers.get(name)
+    if (!layer) {
+      throw new Error('No layer with name "' + name + '" exists!')
+    }
+
+    return layer
+  }
+
+  layer(name) {
+    this._ensureIsInLayeredMode()
+
+    return this.setCanvas(this.getLayer(name).getElement())
+  }
+
+  doFullscreen() {
+    this._ensureIsInLayeredMode()
+    this._lm.doFullscreen()
+    return this
+  }
+
+  exitFullscreen() {
+    this._ensureIsInLayeredMode()
+    this._lm.exitFullscreen()
+    return this
+  }
 }

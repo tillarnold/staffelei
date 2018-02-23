@@ -3,6 +3,9 @@ const Staffelei = require('../')
 const container = document.createElement('div')
 document.body.appendChild(container)
 
+const button = document.createElement('button')
+button.innerText = 'fullscreen'
+document.body.appendChild(button)
 
 const l = new Staffelei(container, {
   mode: 'layered',
@@ -10,11 +13,17 @@ const l = new Staffelei(container, {
   height: '500'
 })
 
+button.addEventListener('click', () => l.doFullscreen())
 window.l = l
 
 l
-  .createLayer('background', 0)
-  .createLayer('front', 1)
+  .createLayer('solid', 1)
+  .createLayer('background', 2)
+  .createLayer('front', 3)
+  .layer('solid')
+  .getCanvas()
+  .style.background = 'purple'
+l
   .layer('background')
   .fillStyle('red')
   .mt(50, 50)
@@ -33,12 +42,14 @@ l
   .rotateContextAt(250, 250, Math.PI / 4)
   .fillRect(200, 200, 100, 100)
   .resetTransforms()
-  .on('click', e => {
-    l.layer('front').fillStyle('lime').fillRectCenteredAt(e.x, e.y, 15, 15)
+  .on('mousemove', e => {
+    l.layer('front').clear().fillStyle('lime').fillRectCenteredAt(e.x, e.y, 15, 15)
   })
 
 
 setInterval(() => {
-  l.clearRect(400, 0, 100, 30)
+  l
+    .layer('background')
+    .clearRect(400, 0, 100, 30)
     .fillTextCenteredAt(l.isMouseDown(), 450, 15)
 }, 100)
