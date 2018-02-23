@@ -15,7 +15,7 @@ also use it to manage layers.
 
 In the first case which is called simple mode you'd do something like this:
 
-```
+```js
 import Staffelei from 'staffelei';
 //or
 const Staffelei = requiew('staffelei');
@@ -32,7 +32,7 @@ Where the element with the id `myCanvas` is a canvas.
 
 If you want to use the layers you use 'layered' mode.
 
-```
+```js
 let s = new Staffelei(document.getElementById('myContainer'), { mode: 'layered' ,
                                                                 width: 500
                                                                 height: 500  });
