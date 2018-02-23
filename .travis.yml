@@ -2,5 +2,14 @@ language: node_js
 node_js:
   - "stable"
 install: npm install
-script: npm run lint && npm run test-coveralls
+script: npm run lint && npm run test-coveralls && npm run build && npm run build-dist
 sudo: false
+deploy:
+  provider: releases
+  api_key:
+    secure: os76j7Ou6JD819FlFjpNESymyWWnm5VOGXomhkJMUxhyAZs5+z/rU2bF3fyGlxsC6T5Zrbuz1xxQ+v9rgNNkGppC5pvodIdTc+pHKGfNJMh7m8iNLsrBq+dYM6j1/0SZfBk9cnNGL/0w51h33CD8si7/opDMFjePRiOH3D2FOgvLXg8E2z+3taFwSiw5y8X3Sl9zoSU3PP0pu0iGnzOXcPJle3VzOQFw9qb6OGLjkakQVu/PdaVsDr3CGnb1EBSV/Jik5aw2TZZmf4RbIWaqkQG53n1vNsWHrOxc3WiBP3GNfy66I3MvZ+lgWxKCivoxzujV2uzoCXDeLRlQKHfMMPr3t/ZpsQVzMW7fig65SRv7+6CN+WDMwnf709b73gJxUU4tbIJ7wQNUdtE1IagC27jlq/4mnfkaNpJFjw1looweMd5eKNlaC+t2kVZqhJotm6Az38FsNbxlFS/Fp336Awf4u4T38cCqrFIqQnPjjo492fSKtIZ9abo61ykNf3d+6SkoVF7z9rbF858+22TaVzwh6RrtkTKHbmBfLBgUopfvkBKMnLqoW3BwhNukV18IEgHLu3qK0d0uxiSNa9Z/ysonzKB8ZAp0zX8Je3ImiNh+tt30XsyVhVsAURXBHZHTWA/9qbXqmvXrOkjY0VQPrJ8uJDlCYpMLTuztjcTpVng=
+  file_glob: true
+  file: dist/*
+  skip_cleanup: true
+  on:
+    tags: true
