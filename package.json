@@ -18,7 +18,9 @@
     "build-dist": "rm -rf dist && mkdir dist && npm run build-dist-browserify && npm run build-dist-rollup && npm run build-dist-min",
     "build-dist-browserify": "npm run build && browserify --standalone Staffelei  es5-generated/index.js -o dist/staffelei-browserify-v${npm_package_version}.js",
     "build-dist-rollup": "rollup -c",
-    "build-dist-min": "uglifyjs dist/staffelei-browserify-v${npm_package_version}.js > dist/staffelei-browserify-v${npm_package_version}-min.js && uglifyjs dist/staffelei-rollup-v${npm_package_version}.js > dist/staffelei-rollup-v${npm_package_version}-min.js"
+    "build-dist-min": "npm run build-dist-rollup-min && npm run build-dist-browserify-min",
+    "build-dist-rollup-min":  "uglifyjs dist/staffelei-rollup-v${npm_package_version}.js > dist/staffelei-rollup-v${npm_package_version}-min.js",
+    "build-dist-browserify-min": "uglifyjs dist/staffelei-browserify-v${npm_package_version}.js > dist/staffelei-browserify-v${npm_package_version}-min.js" 
   },
   "repository": {
     "type": "git",
