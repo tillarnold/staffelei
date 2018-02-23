@@ -6,8 +6,8 @@
   "scripts": {
     "test": "npm run build && node es5-generated/test/test.js",
     "test-coveralls": "npm run istanbul && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "test-beefy": "beefy es5-generated/test/beefy.js -v",
-    "test-beefy-live": "beefy es5-generated/test/beefy.js --cwd test -v --live",
+    "test-beefy": "npm run build && beefy es5-generated/test/beefy.js -v",
+    "test-beefy-live": "npm run build && beefy es5-generated/test/beefy.js --cwd test -v --live",
     "coverage": "rm -rf coverage && npm run istanbul && istanbul report html && serve coverage",
     "istanbul": "npm run build && istanbul cover es5-generated/test/test.js",
     "lint": "eslint src-es6/*",
@@ -46,6 +46,7 @@
     "babel-preset-env": "^1.6.1"
   },
   "dependencies": {
+    "@tillarnold/oni": "0.0.1",
     "canvas-utils": "^0.8.0",
     "leinwand": "^0.6.0"
   }
