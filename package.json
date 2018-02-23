@@ -1,6 +1,6 @@
 {
   "name": "staffelei",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Canvas API wrapper",
   "main": "index.js",
   "module": "src-es6/index.js",

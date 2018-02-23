@@ -45,4 +45,5 @@ s
 ```
 
 ## Release History
+* 2018-02-23   v0.1.0   add layer management
 * 2018-02-09   v0.0.1   initial version
