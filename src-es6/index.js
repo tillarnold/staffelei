@@ -20,7 +20,7 @@ document.addEventListener('mouseup', evt => {
 })
 
 
-module.exports = class Staffelei extends Leinwand {
+export default class Staffelei extends Leinwand {
   constructor(canvas, {
     mode = 'simple',
     width,
