@@ -1,17 +1,17 @@
 const Staffelei = require('../')
 
 const container = document.createElement('div')
-container.style.outline = '1px solid black'
 document.body.appendChild(container)
 
 
 const l = new Staffelei(container, {
   mode: 'layered',
-  width: '250',
-  height: '250'
+  width: '500',
+  height: '500'
 })
 
 window.l = l
+
 l
   .createLayer('background', 0)
   .createLayer('front', 1)

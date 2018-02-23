@@ -12,7 +12,7 @@
     "istanbul": "npm run build && istanbul cover es5-generated/test/test.js",
     "lint": "eslint src-es6/*",
     "format": "js-beautify -s=2 -r -f src-es6/*.js src-es6/test/*.js",
-    "pre-commit": "npm run format && npm run lint && npm run test",
+    "check": "npm run format && npm run lint && npm run test",
     "build": "rm -rf es5-generated && mkdir es5-generated && babel src-es6 --out-dir es5-generated",
     "build-dist": "rm -rf dist && mkdir dist && npm run build-dist-browserify && npm run build-dist-rollup",
     "build-dist-browserify": "npm run build && browserify --standalone Staffelei  es5-generated/index.js -o dist/staffelei-browserify.js",
@@ -46,7 +46,7 @@
     "babel-preset-env": "^1.6.1"
   },
   "dependencies": {
-    "@tillarnold/oni": "0.0.1",
+    "@tillarnold/oni": "0.1.1",
     "canvas-utils": "^0.8.0",
     "leinwand": "^0.6.0"
   }
