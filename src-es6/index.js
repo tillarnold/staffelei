@@ -1,4 +1,5 @@
 import Leinwand from 'leinwand'
+
 import {
   canvasToImage,
   createCanvasEventEmitter
@@ -21,6 +22,7 @@ document.addEventListener('mouseup', evt => {
 
 
 export default class Staffelei extends Leinwand {
+
   constructor(canvas, {
     mode = 'simple',
     width,
@@ -54,19 +56,25 @@ export default class Staffelei extends Leinwand {
   }
 
 
-  /*
-   * Move to to leinwand?
-   */
+  // Move this to leinwand?
   setCanvas(canvas) {
     this._canvas = canvas
     this._ctx = canvas.getContext('2d')
     return this
   }
 
+  /**
+   * create an Image from the canvas
+   */
   toImage() {
     return canvasToImage(this.getCanvas())
   }
 
+  /**
+   * get the underlying canvasEventEmitter
+   *
+   * this creates a canvasEventEmitter in case it has not been needed before
+   */
   getCanvasEventEmitter() {
     if (!this._canvasEventEmitter) {
       this._canvasEventEmitter = createCanvasEventEmitter(this.getCanvas())
@@ -75,26 +83,41 @@ export default class Staffelei extends Leinwand {
     return this._canvasEventEmitter
   }
 
+  /**
+   * Alias for getCanvasEventEmitter().on
+   */
   on(eventName, listener) {
     this.getCanvasEventEmitter().on(eventName, listener)
     return this
   }
 
+  /**
+   * Alias for getCanvasEventEmitter().once
+   */
   once(eventName, listener) {
     this.getCanvasEventEmitter().once(eventName, listener)
     return this
   }
 
+  /**
+   * returns true if the mouse is currently donw
+   *
+   * this tracks this state globally
+   */
   static isMouseDown(button = 0) {
     return pressedMouseButtons[button] === true
   }
 
+  /**
+   * Alias for the static Staffelei.isMouseDown
+   */
   isMouseDown(button = 0) {
     return Staffelei.isMouseDown(button)
   }
 
-  //LAYER METHODS
 
+
+  //LAYER METHODS
 
   _ensureIsInLayeredMode() {
 
@@ -103,6 +126,10 @@ export default class Staffelei extends Leinwand {
     }
   }
 
+  /**
+   * Create a new layer
+   *
+   */
   createLayer(name, {
     layer = new ExpanderLayer(),
     position
@@ -114,11 +141,17 @@ export default class Staffelei extends Leinwand {
   }
 
 
+  /**
+   * Get the underlying oni.js LayerManager
+   */
   getLayerManager() {
     this._ensureIsInLayeredMode()
     return this._lm
   }
 
+  /**
+   * Get the Layer from the LayerManager for the given name
+   */
   getLayer(name) {
     this._ensureIsInLayeredMode()
 
@@ -130,18 +163,27 @@ export default class Staffelei extends Leinwand {
     return layer
   }
 
+  /**
+   * set the layer with the name as the current layer
+   */
   layer(name) {
     this._ensureIsInLayeredMode()
 
     return this.setCanvas(this.getLayer(name).getElement())
   }
 
+  /**
+   * Fullscreens the LayerManager
+   */
   doFullscreen() {
     this._ensureIsInLayeredMode()
     this._lm.doFullscreen()
     return this
   }
 
+  /**
+   * Exit fullscreen in case it had been enabeled
+   */
   exitFullscreen() {
     this._ensureIsInLayeredMode()
     this._lm.exitFullscreen()

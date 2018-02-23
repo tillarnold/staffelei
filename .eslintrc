@@ -6,7 +6,6 @@
   },
   "rules": {
     "quotes": [2, "single", "avoid-escape"],
-    "valid-jsdoc":2,
     "no-else-return":2,
     "no-floating-decimal":2,
     "no-self-compare":2,
