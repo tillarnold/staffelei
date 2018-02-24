@@ -6,13 +6,14 @@
 [![Coverage Status](https://coveralls.io/repos/tillarnold/staffelei/badge.svg?branch=master)](https://coveralls.io/r/tillarnold/staffelei?branch=master)
 
 `Staffelei` is a utility class that makes working with the 2D Canvas API (`CanvasRenderingContext2D`) easier.
-The `Staffelei` class extends the [`Leinwand`](https://github.com/tillarnold/leinwand)-class. Thus you get all the method chaining goodness
-form there. Additionally `Staffelei` provides more useful utilify methods, event handeling, as well as multi layer canvases.
+The `Staffelei` class extends the [`Leinwand`](https://github.com/tillarnold/leinwand). Thus you get all the method chaining goodness
+form there. Additionally `Staffelei` provides more utilify methods, event handeling, as well as multi layer canvases.
 
-There are two ways to use Staffelei. Either you use it in the same way as `Leinwand` is used simply as a wrapper around a canvas or you
-also use it to manage layers.
+There are two ways to use Staffelei. Either you use it in the same way as `Leinwand`.
+Simply as a wrapper around a canvas.
+Or you also use it to manage layers.
 
-In the first case which is called `simple`-mode you'd do something like this:
+In the first case (called `simple`-mode) you'd do something like this:
 
 ```js
 import Staffelei from 'staffelei';
@@ -46,11 +47,11 @@ s
 In this case the element with the id `myContainer` is the element (e.g. a div) in which the canvas will be placed by Staffelei. 
 
 
-##Methods
+## Methods
 All the methods from [`Leinwand`](https://github.com/tillarnold/leinwand) are available.
 
 #### s.on(eventName, listener)
-This register an eventlistener. The available events are:
+This registers an eventlistener. The available events are:
 
 | Events with synonyms        |  
 |-----------------------------|
@@ -68,11 +69,11 @@ so for example if you want to draw a square where a user clicks on the canvas:
 
 ```js
 s.on('click', e => {
-  s.fillRectCentedAr(e.x,e.y,10,10);
+  s.fillRectCentedAt(e.x,e.y,10,10);
 });
 ```
 
-The event object you get for all of these looks like this:
+The event object you get for all of the events looks like this:
 
 | Property       | Description |
 |----------------|-------------------------------------------------------|
@@ -87,15 +88,15 @@ The event object you get for all of these looks like this:
 like s.on except the `listener` is only called once.
 
 ##### s.isMouseDown(button)
-Returns true if the mouse button with button number `button` is pressed down. `button` defaults to 1 which is the left mouse button.
+Returns true if the mouse button with button number `button` is currently down. `button` defaults to 1 which is the left mouse button.
 Since this method does not need any state from the Staffelei object it can also be called staticaly like `Staffelei.isMouseDown(button)`.
 
 ### Methods for `layered`-mode
 These methods only work when Staffelei is used in `layered`-mode and will throw an `Error` if used in `simple`-mode.
 
 #### s.createLayer(name, {position}
-Creates a new layer with the name `name` and the `position` in the stack on layers.
-Also sets to newly created layer as the current layer.
+Creates a new layer with the name `name` and the `position` in the stack of layers.
+Also sets the newly created layer as the current layer.
 
 #### layer(name) 
 Switch the current layer to the layer with the name `name`. If no layer with that name exists this throws an `Error`.

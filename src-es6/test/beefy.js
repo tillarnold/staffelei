@@ -42,13 +42,18 @@ l
   .fillRect(200, 200, 100, 100)
   .resetTransforms()
   .on('mousemove', e => {
-    l.layer('front').clear().fillStyle('lime').fillRectCenteredAt(e.x, e.y, 15, 15)
+    l
+      .layer('front')
+      .clear()
+      .fillStyle('lime')
+      .fillRectCenteredAt(e.x, e.y, 15, 15)
   })
 
 
 setInterval(() => {
   l
     .layer('background')
+    .fillStyle('black')
     .clearRect(400, 0, 100, 30)
     .fillTextCenteredAt(l.isMouseDown(), 450, 15)
 }, 100)
