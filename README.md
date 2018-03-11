@@ -94,7 +94,7 @@ Since this method does not need any state from the Staffelei object it can also 
 ### Methods for `layered`-mode
 These methods only work when Staffelei is used in `layered`-mode and will throw an `Error` if used in `simple`-mode.
 
-#### s.createLayer(name, {position}
+#### s.createLayer(name, {position})
 Creates a new layer with the name `name` and the `position` in the stack of layers.
 Also sets the newly created layer as the current layer.
 
