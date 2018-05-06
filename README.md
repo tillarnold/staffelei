@@ -34,7 +34,7 @@ If you want to use the layers you use `layered`-mode.
 
 ```js
 let s = new Staffelei(document.getElementById('myContainer'), { mode: 'layered' ,
-                                                                width: 500
+                                                                width: 500 ,
                                                                 height: 500  });
 
 s
