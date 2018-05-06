@@ -19,8 +19,8 @@
     "build-dist-browserify": "npm run build && browserify --standalone Staffelei  es5-generated/index.js -o dist/staffelei-browserify-v${npm_package_version}.js",
     "build-dist-rollup": "rollup -c",
     "build-dist-min": "npm run build-dist-rollup-min && npm run build-dist-browserify-min",
-    "build-dist-rollup-min":  "uglifyjs dist/staffelei-rollup-v${npm_package_version}.js > dist/staffelei-rollup-v${npm_package_version}-min.js",
-    "build-dist-browserify-min": "uglifyjs dist/staffelei-browserify-v${npm_package_version}.js > dist/staffelei-browserify-v${npm_package_version}-min.js" 
+    "build-dist-rollup-min": "uglifyjs dist/staffelei-rollup-v${npm_package_version}.js > dist/staffelei-rollup-v${npm_package_version}-min.js",
+    "build-dist-browserify-min": "uglifyjs dist/staffelei-browserify-v${npm_package_version}.js > dist/staffelei-browserify-v${npm_package_version}-min.js"
   },
   "repository": {
     "type": "git",
@@ -42,8 +42,8 @@
     "eslint": "^4.17.0",
     "istanbul": "^0.4.0",
     "js-beautify": "^1.6.3",
-    "rollup": "^0.56.1",
-    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup": "^0.58.2",
+    "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.0.3",
     "serve": "^6.4.9",
     "tape": "^4.2.2",
@@ -51,8 +51,8 @@
     "watchify": "^3.10.0"
   },
   "dependencies": {
-    "oni.js": "0.1.3",
     "canvas-utils": "^0.8.0",
-    "leinwand": "^0.6.0"
+    "leinwand": "^0.6.0",
+    "oni.js": "^0.1.3"
   }
 }
