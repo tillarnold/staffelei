@@ -69,7 +69,7 @@ so for example if you want to draw a square where a user clicks on the canvas:
 
 ```js
 s.on('click', e => {
-  s.fillRectCentedAt(e.x,e.y,10,10);
+  s.fillRectCenteredAt(e.x,e.y,10,10);
 });
 ```
 
