@@ -2,7 +2,7 @@
   "name": "staffelei",
   "version": "0.1.0",
   "description": "Canvas API wrapper",
-  "main": "index.js",
+  "main": "es5-generated/index.js",
   "module": "src-es6/index.js",
   "scripts": {
     "test": "npm run build && node es5-generated/test/test.js",
