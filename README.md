@@ -114,5 +114,6 @@ If you'd rather just get a `.js` file you can download it from the releases page
 The rollup version is smaller but the browserify version is probably more compatible with older browsers since more of the code has been transpiled.
 
 ## Release History
+* 2018-05-06   v0.1.1   documentation
 * 2018-02-23   v0.1.0   add layer management
 * 2018-02-09   v0.0.1   initial version
