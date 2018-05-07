@@ -2,7 +2,7 @@
   "name": "staffelei",
   "version": "0.1.1",
   "description": "Canvas API wrapper",
-  "main": "es5-generated/index.js",
+  "main": "es5-generated/node-wrapper.js",
   "module": "src-es6/index.js",
   "scripts": {
     "test": "npm run build && node es5-generated/test/test.js",
@@ -16,7 +16,7 @@
     "check": "npm run format && npm run lint && npm run test",
     "build": "rm -rf es5-generated && mkdir es5-generated && babel src-es6 --out-dir es5-generated",
     "build-dist": "rm -rf dist && mkdir dist && npm run build-dist-browserify && npm run build-dist-rollup && npm run build-dist-min",
-    "build-dist-browserify": "npm run build && browserify --standalone Staffelei  es5-generated/browserify-wrapper.js -o dist/staffelei-browserify-v${npm_package_version}.js",
+    "build-dist-browserify": "npm run build && browserify --standalone Staffelei  es5-generated/node-wrapper.js -o dist/staffelei-browserify-v${npm_package_version}.js",
     "build-dist-rollup": "rollup -c",
     "build-dist-min": "npm run build-dist-rollup-min && npm run build-dist-browserify-min",
     "build-dist-rollup-min": "uglifyjs --mangle --toplevel -- dist/staffelei-rollup-v${npm_package_version}.js > dist/staffelei-rollup-v${npm_package_version}-min.js",
