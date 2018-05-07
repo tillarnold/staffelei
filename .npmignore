@@ -2,3 +2,6 @@
 .jshintrc
 .eslintrc
 .travis.yml
+/dist
+rollup.config.js
+.babelrc
