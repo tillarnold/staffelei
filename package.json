@@ -32,6 +32,8 @@
   "author": "Till Arnold",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.3",
@@ -41,14 +43,12 @@
     "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
     "js-beautify": "^1.10.3",
+    "nyc": "^15.0.0",
     "rollup": "^1.29.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "serve": "^11.3.0",
     "tape": "^4.13.0",
     "uglify-es": "^3.3.9",
-    "watchify": "^3.11.1",
-    "nyc": "^15.0.0"
+    "watchify": "^3.11.1"
   },
   "dependencies": {
     "canvas-utils": "^0.8.0",
