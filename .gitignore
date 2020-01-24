@@ -27,3 +27,4 @@ node_modules
 
 es5-generated
 dist
+.nyc_output
