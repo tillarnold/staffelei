@@ -6,7 +6,7 @@
   "module": "src-es6/index.js",
   "scripts": {
     "test": "npm run build && node es5-generated/test/test.js",
-    "test-coveralls": "npm run istanbul && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "test-coveralls": "npm run istanbul && nyc report --reporter=text-lcov | coveralls",
     "test-beefy": "npm run build && beefy es5-generated/test/beefy.js -v",
     "test-beefy-live": "npm run build && beefy es5-generated/test/beefy.js --cwd test -v --live",
     "coverage": "rm -rf coverage && npm run istanbul && nyc report --reporter=html && serve coverage",
